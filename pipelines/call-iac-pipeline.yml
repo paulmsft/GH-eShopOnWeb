@@ -11,4 +11,4 @@ pool:
 
 steps:
 - checkout: iacRepo
-- script: ls
+- script: ls ./bicep
