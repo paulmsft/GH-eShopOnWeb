@@ -1,0 +1,14 @@
+resources:
+  repositories:
+  - repository: iacRepo
+    type: git
+    name: 'AZ-400 May 9/IaC Repo'
+
+trigger: none
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- checkout: iacRepo
+- script: ls
