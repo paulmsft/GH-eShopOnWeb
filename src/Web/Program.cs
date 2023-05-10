@@ -20,7 +20,7 @@ using Azure.Identity;
 using Microsoft.eShopWeb.Web.Pages;
 using Microsoft.FeatureManagement;
 using Microsoft.IdentityModel.Tokens;
-
+// Hello, World!
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Logging.AddConsole();
