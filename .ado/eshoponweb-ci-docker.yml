@@ -1,15 +1,10 @@
-# NAME THE PIPELINE SAME AS FILE (WITHOUT ".yml")
-
-resources:
-  repositories:
-    - repository: self
-      trigger: none
+trigger: none
 
 variables:
-  azureServiceConnection: 'azure-connection'
-  subscriptionId: 'YOUR-SUBSCRIPTION-ID'
-  resourceGroup: 'rg-az400-container-NAME'
-  location: 'westeurope'
+  azureServiceConnection: 'Demo Subscription (ebdcf40f-850b-442d-8751-f50b91715851)'
+  subscriptionId: 'ebdcf40f-850b-442d-8751-f50b91715851'
+  resourceGroup: 'rg-az400-container-ivey'
+  location: 'uksouth'
 
 stages:
 - stage: Build
@@ -31,6 +26,7 @@ stages:
         csmFile: '.azure/bicep/acr.bicep'
         deploymentMode: 'Incremental'
         deploymentOutputs: 'outputJson'
+
     - task: PowerShell@2
       displayName: Parse Bicep Output
       inputs:
@@ -39,6 +35,7 @@ stages:
           $var=ConvertFrom-Json '$(outputJson)'
           $value=$var.acrLoginServer.value
           Write-Host "##vso[task.setvariable variable=acrLoginServer;]$value"
+
     - task: Docker@0
       displayName: 'Build the docker image'
       inputs:
@@ -49,6 +46,7 @@ stages:
         context: $(Build.SourcesDirectory)
         includeLatestTag: true
         imageName: eshoponweb/web:$(Build.BuildId)
+        
     - task: Docker@0
       displayName: 'Push the docker images'
       inputs:
