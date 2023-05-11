@@ -1,15 +1,10 @@
-#NAME THE PIPELINE SAME AS FILE (WITHOUT ".yml")
-
-resources:
-  repositories:
-    - repository: self
-      trigger: none
+trigger: none
 
 variables:
-  azureServiceConnection: 'azure-connection'
-  resourceGroup: 'rg-az400-container-NAME'
-  location: 'westeurope'
-  subscriptionId: 'YOUR-SUBSCRIPTION-ID'
+  azureServiceConnection: 'Demo Subscription (ebdcf40f-850b-442d-8751-f50b91715851)'
+  resourceGroup: 'rg-az400-container-ivey'
+  location: 'uksouth'
+  subscriptionId: 'ebdcf40f-850b-442d-8751-f50b91715851'
 
 stages:
 - stage: Deploy
@@ -30,6 +25,7 @@ stages:
         templateLocation: 'Linked artifact'
         csmFile: '.azure/bicep/webapp-docker.bicep'
         deploymentMode: 'Incremental'
+
     - task: AzureResourceManagerTemplateDeployment@3
       displayName: Add Role Assignment using Bicep
       inputs:
