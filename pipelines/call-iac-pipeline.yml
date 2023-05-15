@@ -2,7 +2,7 @@ resources:
   repositories:
   - repository: iacRepo
     type: git
-    name: 'AZ-400 May 9/IaC Repo'
+    name: 'AZ-400 eWebShop/IaC Repo'
 
 trigger: none
 
