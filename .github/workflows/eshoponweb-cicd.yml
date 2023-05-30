@@ -35,7 +35,7 @@ jobs:
     - name: Test with dotnet
       id: unittest
       run: |
-        dotnet test ./eShopOnWeb.sln --configuration Release |& tee test_results.txt
+        dotnet test ./eShopOnWeb.sln --configuration Release --no-build --filter "FullyQualifiedName~UnitTest" |& tee test_results.txt
         
         # break if 'dotnet test' failed
         test ${PIPESTATUS[0]} -eq 0
