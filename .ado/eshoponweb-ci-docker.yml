@@ -1,7 +1,7 @@
 trigger: none
 
 variables:
-  azureServiceConnection: 'Demo Subscription (ebdcf40f-850b-442d-8751-f50b91715851)'
+  azureServiceConnection: 'My Azure Service Connection'
   subscriptionId: 'ebdcf40f-850b-442d-8751-f50b91715851'
   resourceGroup: 'rg-az400-container-ivey'
   location: 'uksouth'
