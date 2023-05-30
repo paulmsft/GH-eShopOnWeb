@@ -39,7 +39,7 @@ jobs:
         
         # break if 'dotnet test' failed
         test ${PIPESTATUS[0]} -eq 0
-        continue-on-error: true
+      continue-on-error: true
 
     # Create string output
     - name: Create output from tests
