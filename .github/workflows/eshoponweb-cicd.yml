@@ -98,6 +98,7 @@ jobs:
     needs: buildandtest
     environment:
       name: 'Development'
+      url: "${{ steps.deploy-to-webapp.outputs.webapp-url }}"
     steps:
     
     # Download the publish files created in previous job
@@ -132,6 +133,7 @@ jobs:
     # Publish website to Azure App Service (WebApp)
     - name: Publish Website to WebApp
       uses: Azure/webapps-deploy@v2
+      id: deploy-to-webapp
       with:
         app-name: ${{ env.WEBAPP-NAME  }}
         package: .net-app
