@@ -9,7 +9,7 @@ on:
     paths:
       - "src/Web/**"
       
-  workflow_dispatch:
+  # workflow_dispatch:
 
 # Environment variables
 env:
