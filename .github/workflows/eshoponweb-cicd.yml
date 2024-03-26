@@ -116,7 +116,14 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-           
+
+    # Create resource group
+    - name: Create resource group
+      uses: azure/cli@v2
+      with:
+        azcliversion: 2.30.0
+        inlineScript: az group create -n ${{ env.RESOURCE-GROUP }} -l ${{ env.LOCATION }} --tags course=AZ-400
+          
     # Deploy Azure WebApp using Bicep file
     - name: deploy
       uses: azure/arm-deploy@v1
